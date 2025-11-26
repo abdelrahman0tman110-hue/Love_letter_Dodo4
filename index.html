@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Love Letter for Doaa (DODO)</title>
+<style>
+  :root{
+    --pink:#ff7aa2;
+    --bg:#f7e9ef;
+    --card:#ffffff;
+    --text:#333;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family: 'Segoe UI', Tahoma, sans-serif;
+    background:linear-gradient(180deg, #fff 0%, var(--bg) 100%);
+    color:var(--text); -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale; padding:28px;
+  }
+  header{max-width:900px;margin:0 auto 18px; text-align:center;}
+  h1{margin:0;font-size:28px;color:var(--pink)}
+  p.lead{margin:6px 0 0;opacity:.9}
+  .wrap{max-width:900px;margin:18px auto;display:grid;gap:18px;grid-template-columns:1fr;}
+  .card{background:var(--card);border-radius:16px;padding:22px;box-shadow:0 6px 20px rgba(0,0,0,.06);}
+  .row{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+  .img-box{
+    flex:1 1 280px; min-height:200px;border-radius:12px;
+    border:2px dashed rgba(255,122,162,.35); display:flex;
+    align-items:center;justify-content:center;background-size:cover;
+    background-position:center; color:var(--pink); font-weight:600;
+  }
+  .text{flex:1 1 320px; text-align:right}
+  .text h3{margin:0 0 6px;font-size:20px;color:var(--pink)}
+  .text p{margin:0;color:#444;opacity:.95;line-height:1.5}
+  .controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+  .btn{background:var(--pink);color:#fff;padding:10px 16px;border-radius:10px;border:none;cursor:pointer}
+  input[type=file]{display:none}
+  label.file{background:transparent;border:1px solid rgba(0,0,0,.06);padding:8px 12px;border-radius:8px;cursor:pointer}
+  footer{max-width:900px;margin:20px auto;text-align:center;color:#666;font-size:14px}
+  /* small screens */
+  @media (max-width:720px){
+    .row{flex-direction:column-reverse}
+    .img-box, .text{width:100%}
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>رسالة حب لـ Doaa (DODO)</h1>
+  <p class="lead">ممكن تضيفي الصور بسهولة: اضغطي على زرّ 'اختيار صورة' قدام كل فقرة عشان تشوفي المعاينة فوراً.</p>
+</header>
+
+<div class="wrap">
+
+  <!-- Paragraph 1 -->
+  <section class="card">
+    <div class="row">
+      <div class="text">
+        <h3>لدواء… اللي قلبي بينطق اسمها قبل لساني ❤️</h3>
+        <p id="p1txt">يا Doaa، وجودك في حياتي عمل فرق كبير. كل لحظة معاكي — حتى لو مجرد كلام — بتغيّر يومي كله.</p>
+      </div>
+      <div class="img-box" id="img1">مكان الصورة الأولى</div>
+    </div>
+    <div class="controls">
+      <label class="file btn">اختيار صورة
+        <input type="file" accept="image/*" id="file1">
+      </label>
+      <button class="btn" onclick="resetImage(1)">إلغاء الصورة</button>
+    </div>
+  </section>
+
+  <!-- Paragraph 2 -->
+  <section class="card">
+    <div class="row">
+      <div class="text">
+        <h3>يا DODO… نبض قلبي الناعم 💗</h3>
+        <p id="p2txt">أنا مش بس بحبك… أنا متعلق بيكي، بصوتك، بطريقة كلامك، وبالحضور الدافي اللي معاكي.</p>
+      </div>
+      <div class="img-box" id="img2">مكان الصورة الثانية</div>
+    </div>
+    <div class="controls">
+      <label class="file btn">اختيار صورة
+        <input type="file" accept="image/*" id="file2">
+      </label>
+      <button class="btn" onclick="resetImage(2)">إلغاء الصورة</button>
+    </div>
+  </section>
+
+  <!-- Paragraph 3 -->
+  <section class="card">
+    <div class="row">
+      <div class="text">
+        <h3>أجمل صدفة في حياتي ✨</h3>
+        <p id="p3txt">إنتي مش شبه حد… إنتي مختلفة، والاختلاف ده هو اللي خلاني أحبك من غير ما أفكر.</p>
+      </div>
+      <div class="img-box" id="img3">مكان الصورة الثالثة</div>
+    </div>
+    <div class="controls">
+      <label class="file btn">اختيار صورة
+        <input type="file" accept="image/*" id="file3">
+      </label>
+      <button class="btn" onclick="resetImage(3)">إلغاء الصورة</button>
+    </div>
+  </section>
+
+  <!-- Login / DODO page -->
+  <section class="card" style="text-align:center">
+    <h3>مرحباً يا DODO ❤️</h3>
+    <p>ممكن تضعي كلمه سر بسيطة لو بتحبي تخلي الصفحة خاصة.</p>
+    <input id="pwd" placeholder="اكتبي دلعك DODO" style="padding:10px;border-radius:8px;border:1px solid #ddd;width:60%;max-width:280px;text-align:center" />
+    <div style="margin-top:12px">
+      <button class="btn" onclick="checkPwd()">ادخلي</button>
+    </div>
+    <p id="loginMsg" style="color:green;margin-top:10px;display:none">مرحباً يا DODO! فتحتي الصفحة ✨</p>
+  </section>
+
+  <!-- Gallery (drop area) -->
+  <section class="card">
+    <h3>معرض صورنا — اسحبي الصور هنا لو عايزة</h3>
+    <div id="drop" class="img-box" style="min-height:140px">اسحبي الصور وافلتها هنا</div>
+    <p style="margin-top:10px;font-size:14px;color:#666">بيانات الصور بتكون محلية على جهازك — الموقع هنا ملف HTML بسيط يشتغل بدون رفع على الانترنت.</p>
+  </section>
+
+  <!-- Music -->
+  <section class="card" style="text-align:center">
+    <h3>أغنيتنا المفضلة 🎵</h3>
+    <p style="margin:6px 0 10px">تقدري تضيفي ملف MP3 لو عايزة يعمل تشغيل هنا أثناء العرض.</p>
+    <input type="file" accept="audio/*" id="musicFile" />
+    <div style="margin-top:12px">
+      <audio id="player" controls style="width:100%;max-width:420px"></audio>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <small>صنع بحب — حرر الكود كما تحب، وإذا حابب أعدّلك نسخة PDF أو أضيف تأثيرات أكثر قولّي 😍</small>
+</footer>
+
+<script>
+  function previewFile(inputEl, targetId){
+    const file = inputEl.files && inputEl.files[0];
+    const box = document.getElementById(targetId);
+    if(!file){ return; }
+    const reader = new FileReader();
+    reader.onload = function(e){
+      box.style.backgroundImage = 'url(' + e.target.result + ')';
+      box.textContent = '';
+    }
+    reader.readAsDataURL(file);
+  }
+
+  document.getElementById('file1').addEventListener('change', function(){ previewFile(this,'img1') });
+  document.getElementById('file2').addEventListener('change', function(){ previewFile(this,'img2') });
+  document.getElementById('file3').addEventListener('change', function(){ previewFile(this,'img3') });
+
+  function resetImage(n){
+    const box = document.getElementById('img'+n);
+    const input = document.getElementById('file'+n);
+    input.value = '';
+    box.style.backgroundImage = '';
+    box.textContent = 'مكان الصورة ' + (n===1? 'الأولى': n===2? 'الثانية':'الثالثة');
+  }
+
+  // simple password check for DODO
+  function checkPwd(){
+    const v = document.getElementById('pwd').value.trim();
+    const msg = document.getElementById('loginMsg');
+    if(!v){ msg.style.display='block'; msg.style.color='red'; msg.textContent='اكتبي دلعك DODO عشان تفتحي'; return; }
+    if(v.toLowerCase() === 'dodo' || v === 'DODO'){
+      msg.style.display='block'; msg.style.color='green'; msg.textContent='مرحباً يا DODO! فتحتي الصفحة ✨';
+      // simple highlight
+      document.body.scrollIntoView({behavior:'smooth'});
+    } else {
+      msg.style.display='block'; msg.style.color='red'; msg.textContent='الاسم غلط، جرّبي تاني.';
+    }
+  }
+
+  // Drop area for gallery
+  const drop = document.getElementById('drop');
+  drop.addEventListener('dragover', function(e){ e.preventDefault(); drop.style.opacity=.85; });
+  drop.addEventListener('dragleave', function(e){ drop.style.opacity=1 });
+  drop.addEventListener('drop', function(e){
+    e.preventDefault(); drop.style.opacity=1;
+    const files = Array.from(e.dataTransfer.files).filter(f=>f.type.startsWith('image/'));
+    if(!files.length) return;
+    // show first dropped image as background
+    const reader = new FileReader();
+    reader.onload = function(ev){ drop.style.backgroundImage = 'url('+ev.target.result+')'; drop.textContent = '';}
+    reader.readAsDataURL(files[0]);
+  });
+
+  // music file preview
+  document.getElementById('musicFile').addEventListener('change', function(){
+    const f = this.files && this.files[0];
+    const player = document.getElementById('player');
+    if(!f){ player.src=''; return; }
+    const url = URL.createObjectURL(f);
+    player.src = url;
+    player.play().catch(()=>{});
+  });
+</script>
+</body>
+</html>
