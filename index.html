@@ -1,27 +1,25 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Kingdom of Dodo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingdom of Dodo 👑🦋</title>
 
     <style>
-
         body {
             margin: 0;
-            padding: 0;
             background: linear-gradient(135deg, #ffe5ec, #ffd6e8);
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
 
-        /* صفحة الدخول */
-        #loginScreen {
+        /* ───────────── صفحة الدخول ───────────── */
+        #login-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: #ffe5ec;
+            background: #ffdde6; /* خلفية كاملة بدون شفافية */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -30,73 +28,65 @@
             text-align: center;
         }
 
-        #loginBox {
+        #login-box {
             background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.2);
-            width: 80%;
-            max-width: 350px;
+            padding: 30px;
+            border-radius: 20px;
+            width: 85%;
+            max-width: 380px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.2);
         }
 
-        #loginBox h2 {
+        .login-title {
+            font-size: 28px;
             color: #d63384;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .login-subtitle {
+            font-size: 17px;
+            color: #666;
+            margin-bottom: 18px;
+        }
+
+        #passwordInput {
+            width: 90%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid #ff8fa3;
+            outline: none;
+            font-size: 16px;
             margin-bottom: 15px;
         }
 
-        #loginBox p {
-            color: #444;
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        #passInput {
-            width: 90%;
-            padding: 10px;
-            border-radius: 10px;
-            border: 2px solid #ff6b81;
-            outline: none;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
         #enterBtn {
+            padding: 10px 20px;
             background: #ff6b81;
             color: white;
-            border: none;
-            padding: 10px 25px;
             font-size: 18px;
-            border-radius: 20px;
+            border-radius: 30px;
+            border: none;
             cursor: pointer;
         }
 
-        #enterBtn:hover {
-            background: #ff4757;
-        }
-
-        /* العنوان */
-        #mainTitle {
-            text-align: center;
-            color: #d63384;
-            font-size: 35px;
-            font-weight: bold;
-            margin-top: 25px;
-            animation: slideDown 1.2s ease;
-        }
-
-        @keyframes slideDown {
-            from { transform: translateY(-40px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        /* محتوى الصور */
+        /* ───────────── المحتوى ───────────── */
         .container {
             max-width: 850px;
-            margin: 30px auto;
+            margin: 40px auto;
             padding: 20px;
             background: rgba(255,255,255,0.85);
             border-radius: 18px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        /* عنوان المملكة */
+        .kingdom-title {
+            text-align: center;
+            font-size: 34px;
+            font-weight: bold;
+            color: #c2185b;
+            margin-bottom: 25px;
         }
 
         .photo {
@@ -109,10 +99,11 @@
 
         .text-box {
             text-align: center;
-            font-size: 19px;
+            font-size: 20px;
             font-weight: bold;
-            padding: 10px;
             color: #444;
+            margin-bottom: 25px;
+            padding: 0 10px;
         }
 
         /* زر الأغنية */
@@ -145,41 +136,32 @@
         }
 
         @keyframes floatUp {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(-120vh); opacity: 0; }
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-120vh) scale(1.6); opacity: 0; }
         }
-
-        .songMsg {
-            text-align: center;
-            font-size: 20px;
-            color: #d63384;
-            font-weight: bold;
-            margin-bottom: 25px;
-        }
-
     </style>
 </head>
 
 <body>
 
-    <!-- صفحة الدخول -->
-    <div id="loginScreen">
-        <div id="loginBox">
-            <h2>الدخول مسموح فقط لـ Dodo ❤️</h2>
-            <p>ادخلي مملكتك يا ملكتي 👑🦋</p>
+    <!-- ───────────── صفحة الدخول ───────────── -->
+    <div id="login-screen">
+        <div id="login-box">
+            <div class="login-title">Welcome DODO 🫠❤️</div>
+            <div class="login-subtitle"> Dodo الدخول مسموح فقط لـ 👑🦋</div>
 
-            <input id="passInput" type="password" placeholder="اكتبي كلمة السر يا دودو ❤️">
+            <input type="password" id="passwordInput" placeholder="ادخلي مملكتك يا ملكتي 👑🦋">
 
-            <button id="enterBtn">دخول</button>
+            <button id="enterBtn">Enter</button>
         </div>
     </div>
 
-    <!-- العنوان -->
-    <h1 id="mainTitle">Kingdom of Dodo 🙈👑🦋</h1>
-
-    <!-- الصور -->
+    <!-- ───────────── المحتوى الأساسي ───────────── -->
     <div class="container">
 
+        <div class="kingdom-title">Kingdom of Dodo 🙈👑🦋</div>
+
+        <!-- الصورة الأولى -->
         <img src="48501a3cd0ffd3b5c11411651d43b36b.jpg" class="photo">
         <div class="text-box">
             سأعتني بك ، رغم البعد بيننا  
@@ -188,55 +170,60 @@
             وثنايا ذاكرتي 🥹♥️♥️♥️
         </div>
 
+        <!-- الصورة الثانية -->
         <img src="5e9cf4903041a56951bf28c0286a026f.jpg" class="photo">
         <div class="text-box">
-            كيف جعلتِ هذا القلب  
-            بعد حبكِ ناصحا ؟ ♥️
+            كيف جعلتَ هذا القلب  
+            بعد حبك ناصحا ؟ ♥️
         </div>
 
+        <!-- الصورة الثالثة -->
         <img src="82ae37130c74dc47e09559f89ad11ab5.jpg" class="photo">
         <div class="text-box">
-            ولكِ في الروح عشق لا ينتهي ،  
-            فكيف لا تدمنك روحي وأنتِ دوائها.! 🫠♥️
+            ولكِ في الروح عشق لا ينتهي  
+            فكيف لا تدمنك روحي وأنتي دوائها.!🫠♥️
         </div>
 
     </div>
 
-    <!-- زر الأغنية -->
+    <!-- الأغنية -->
     <audio id="bg-music">
         <source src="Dodo.song.mp3" type="audio/mpeg">
     </audio>
 
     <button id="playBtn">❤️ تشغيل الأغنية ❤️</button>
 
-    <div class="songMsg" id="songMessage" style="display:none;">
-        يارب اتجوزك عشان اطلع عينك بقا واعملك تطبخي 🤝🏻😂
-    </div>
-
     <script>
-        // زر الأغنية
-        const music = document.getElementById("bg-music");
-        const btn = document.getElementById("playBtn");
-        const msg = document.getElementById("songMessage");
-
-        btn.onclick = () => {
-            music.play();
-            btn.innerText = "🎶 الأغنية شغالة 🎶";
-            btn.style.background = "#2ed573";
-            btn.style.animation = "none";
-            msg.style.display = "block";
+        document.getElementById("playBtn").onclick = () => {
+            bg-music.play();
+            playBtn.innerHTML = "🎶 يارب اتجوزك عشان اطلع عينك بقا واعملك تطبخي ، وهعملك ليمون نعناع 🙉😽🤝🏻😂 🎶";
         };
 
-        // القلوب
+        // صفحة الدخول برقم سري
+        document.getElementById("enterBtn").onclick = function() {
+            let pass = document.getElementById("passwordInput").value;
+
+            if (pass === "Do3ty♡") {
+                document.getElementById("login-screen").style.display = "none";
+            } else {
+                alert("غلط يا كتكوته...وكده انا ازعل 🙈🥺");
+            }
+        };
+
+        // القلوب المتحركة
         function createHeart() {
             const h = document.createElement("div");
             h.classList.add("heart");
             h.innerHTML = "❤️";
             h.style.left = Math.random() * window.innerWidth + "px";
-            h.style.fontSize = (Math.random() * 20 + 20) + "px";
             document.body.appendChild(h);
             setTimeout(() => h.remove(), 4000);
         }
+        setInterval(createHeart, 350);
+    </script>
+
+</body>
+</html>        }
         setInterval(createHeart, 400);
 
         // صفحة الدخول
