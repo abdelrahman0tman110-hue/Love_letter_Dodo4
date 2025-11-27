@@ -1,101 +1,84 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Letter for Dodo ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dodo Message</title>
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #ffe6ea;
-            font-family: "Tajawal", sans-serif;
-            overflow-x: hidden;
-        }
+<style>
 
-        /* خلفية الورقة */
-        .paper {
-            width: 90%;
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 40px 30px;
-            background: url('https://i.imgur.com/8fC4q7k.png'); /* ورقة قديمة */
-            background-size: cover;
-            background-position: center;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-        }
+    body {
+        margin: 0;
+        background: #f8e7e7;
+        font-family: "Arial";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
 
-        h1 {
-            text-align: center;
-            font-size: 30px;
-            margin-bottom: 20px;
-            color: #b30053;
-            font-family: "Cairo", sans-serif;
-        }
+    /* الخلفية */
+    .frame-container {
+        position: relative;
+        width: 320px;
+        padding-top: 40px;
+    }
 
-        .text {
-            font-size: 22px;
-            line-height: 1.9;
-            white-space: pre-line;
-            color: #4a2c2a;
-            font-weight: bold;
-            font-family: "Lateef", serif;
-        }
+    /* الحبل اللي متعلقة فيه الصورة */
+    .string {
+        width: 2px;
+        height: 70px;
+        background: #444;
+        position: absolute;
+        left: 50%;
+        top: -40px;
+        transform: translateX(-50%);
+    }
 
-        /* زر الرجوع للصفحة الرئيسية */
-        .back-btn {
-            display: block;
-            width: fit-content;
-            margin: 25px auto;
-            background: #ff4d6d;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-size: 18px;
-            text-decoration: none;
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(255, 0, 76, 0.3);
-        }
+    /* الدبوس */
+    .pin {
+        width: 18px;
+        height: 18px;
+        background: #d6336c;
+        border-radius: 50%;
+        position: absolute;
+        top: -48px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 3px 5px rgba(0,0,0,0.4);
+    }
 
-        .back-btn:hover {
-            background: #d90429;
-            transform: scale(1.05);
-        }
+    /* البرواز */
+    .frame {
+        width: 100%;
+        padding: 12px;
+        background: #fff;
+        border: 6px solid #a86f55;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
 
-    </style>
+    /* الصورة */
+    .frame img {
+        width: 100%;
+        border-radius: 6px;
+    }
+
+</style>
 </head>
 
 <body>
 
-    <div class="paper">
-        <h1>❤️ رسالة من القلب إلى دودو ❤️</h1>
+<div class="frame-container">
 
-        <div class="text">
-في حاجات في الدنيا ربنا بيبعتها من غير ما نطلب،
-ومن غير ما نستنى،
-بس تيجي… وتغيّر كل حاجة.
+    <div class="pin"></div>
+    <div class="string"></div>
 
-وإنتِ بالظبط كنتِ كده.
-
-جيتِ في وقت مكنتش متوقع فيه أي خير…
-ولقيت فجأة إن الدنيا بتبتسم،
-وإن قلبي بيهدى،
-وإن روحي بتتسند عليكِ من غير ما أتكلم.
-
-إنتِ مختلفة…
-مختلفة في نظرتك، في طريقتك، في وجودك،
-حتى في التفاصيل الصغيرة اللي محدش بياخد باله منها…
-أنا باخد بالي منها كلها.
-
-إنك مختلفة…
-وكونك مختلفة
-هو أجمل حاجة حصلت لي في حياتي. 🥺❤️❤️
-        </div>
+    <div class="frame">
+        <img src="1764248956999.jpg" alt="Dodo Picture">
     </div>
 
-    <a href="index.html" class="back-btn">العودة إلى الصفحة الرئيسية ❤️</a>
+</div>
 
 </body>
 </html>
