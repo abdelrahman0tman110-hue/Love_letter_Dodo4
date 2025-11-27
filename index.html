@@ -238,6 +238,47 @@
     setInterval(createHeart,400);
 
 </script>
+<!-- زر تشغيل الفيديو -->
+<button id="videoBtn" style="
+    background:#6c5ce7;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    font-size:18px;
+    border-radius:30px;
+    cursor:pointer;
+    display:block;
+    margin:20px auto;
+    animation: glow2 1.5s infinite alternate;
+">
+🎥 تشغيل الفيديو 🎥
+</button>
 
+<!-- صندوق الفيديو -->
+<div style="text-align:center; margin-top:15px;">
+    <video id="dodoVideo" width="90%" controls style="display:none; border-radius:15px; box-shadow:0 8px 25px rgba(0,0,0,0.25);">
+        <source src="dodo_video.mp4" type="video/mp4">
+    </video>
+</div>
+
+<style>
+@keyframes glow2 {
+    from { box-shadow:0 0 10px #a29bfe; }
+    to { box-shadow:0 0 20px #6c5ce7; }
+}
+</style>
+
+<script>
+const video = document.getElementById("dodoVideo");
+const videoBtn = document.getElementById("videoBtn");
+
+videoBtn.onclick = () => {
+    video.style.display = "block";
+    video.play();
+    videoBtn.innerText = "🎬 الفيديو بيشتغل 🎬";
+    videoBtn.style.background = "#00b894";
+    videoBtn.style.animation = "none";
+};
+</script>
 </body>
 </html>
