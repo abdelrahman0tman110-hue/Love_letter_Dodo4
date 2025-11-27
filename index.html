@@ -1,266 +1,220 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kingdom of Dodo ❤️👑🦋</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kingdom of Dodo ❤️</title>
 
-    <style>
-        body {
-            margin: 0;
-            background: linear-gradient(135deg, #ffe5ec, #ffd6e8);
-            font-family: "Tajawal", sans-serif;
-        }
+<style>
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #ffe5ec, #ffd6e8);
+    font-family: "Tajawal", sans-serif;
+    overflow-x: hidden;
+}
 
-        /* شاشة الدخول */
-        #loginScreen {
-            position: fixed;
-            inset: 0;
-            background: rgba(255, 220, 236, 0.9);
-            backdrop-filter: blur(6px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            z-index: 999;
-            text-align: center;
-        }
+/* ------------------ شاشة الدخول ------------------ */
+#loginScreen {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 220, 236, 0.8);
+    backdrop-filter: blur(7px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 999;
+    animation: fadeIn 1s;
+}
 
-        #loginBox {
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-            width: 85%;
-            max-width: 350px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.2);
-            animation: fadeIn 1.2s ease;
-        }
+#loginBox {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    width: 80%;
+    max-width: 350px;
+    text-align: center;
+    animation: popIn 1s;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(.8); }
-            to   { opacity: 1; transform: scale(1); }
-        }
+#loginBox h2 {
+    margin-bottom: 15px;
+    color: #ff4d6d;
+    font-size: 26px;
+}
 
-        #loginBox h2 {
-            margin-bottom: 10px;
-            color: #ff4d6d;
-            font-size: 26px;
-        }
+#pwd {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 2px solid #ff4d6d;
+    text-align: center;
+    font-size: 18px;
+}
 
-        #pwd {
-            width: 90%;
-            padding: 12px;
-            border-radius: 8px;
-            border: 2px solid #ff4d6d;
-            margin-top: 10px;
-            text-align: center;
-            font-size: 18px;
-        }
+#enterBtn {
+    background: #ff6b81;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
 
-        #enterBtn {
-            background: #ff6b81;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin-top: 12px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: 0.3s;
-        }
+#enterBtn:hover {
+    background: #ff4757;
+    transform: scale(1.05);
+}
 
-        #enterBtn:hover {
-            background: #ff4757;
-            transform: scale(1.05);
-        }
+#loginMsg {
+    margin-top: 10px;
+    color: red;
+    font-size: 16px;
+}
 
-        #loginMsg {
-            margin-top: 10px;
-            color: red;
-            font-weight: bold;
-        }
+/* animations */
+@keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+}
 
-        /* صندوق الاسم */
-        #titleBox {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 32px;
-            color: #ff4d6d;
-            font-weight: bold;
-            animation: slideDown 1.4s ease;
-        }
+@keyframes popIn {
+    0% { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
 
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-40px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
+/* ------------------ محتوى الصفحة ------------------ */
 
-        /* المحتوى */
-        .container {
-            max-width: 850px;
-            margin: 40px auto;
-            padding: 20px;
-            background: rgba(255,255,255,0.8);
-            border-radius: 18px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
+.titleBox {
+    width: fit-content;
+    margin: 30px auto;
+    background: white;
+    padding: 15px 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 100, 150, 0.4);
+    font-size: 26px;
+    font-weight: bold;
+    color: #ff4d6d;
+    animation: slideDown 1.2s ease;
+}
 
-        .photo {
-            width: 95%;
-            display: block;
-            margin: 20px auto;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-        }
+@keyframes slideDown {
+    from { transform: translateY(-60px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
 
-        .text-box {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 20px;
-            color: #444;
-            font-weight: bold;
-            min-height: 40px;
-        }
+.container {
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255,255,255,0.75);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
 
-        /* زر الأغنية */
-        #playBtn {
-            background: #ff6b81;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 18px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: 0.3s;
-            animation: glow 1.5s infinite alternate;
-            display: block;
-            margin: 20px auto;
-        }
+.photo {
+    width: 95%;
+    display: block;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
 
-        @keyframes glow {
-            from { box-shadow: 0 0 10px #ff6b81; }
-            to   { box-shadow: 0 0 20px #ff4757; }
-        }
+.text-box {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #444;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
 
-        /* القلوب */
-        .heart {
-            position: fixed;
-            bottom: -20px;
-            color: #ff4d6d;
-            font-size: 25px;
-            animation: floatUp 4s linear;
-            pointer-events: none;
-        }
+/* زر الأغنية */
+#playBtn {
+    background: #ff6b81;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    animation: glow 1.5s infinite alternate;
+    display: block;
+    margin: 20px auto;
+}
 
-        @keyframes floatUp {
-            0% { transform: translateY(0) scale(1); opacity: 1; }
-            100% { transform: translateY(-120vh) scale(1.6); opacity: 0; }
-        }
-    </style>
-</head>
+#playBtn:hover {
+    background: #ff4757;
+    transform: scale(1.05);
+}
 
-<body>
+@keyframes glow {
+    from { box-shadow: 0 0 10px #ff6b81; }
+    to { box-shadow: 0 0 20px #ff4757; }
+}
 
-    <!-- شاشة الدخول -->
-    <div id="loginScreen">
-        <div id="loginBox">
-            <h2>ادخلي مملكتك يا ملكتي 👑🦋</h2>
-            <input type="password" id="pwd" placeholder="اكتبي رمز الدخول">
-            <button id="enterBtn">دخول ❤️</button>
-            <div id="loginMsg"></div>
-        </div>
-    </div>
+/* قلوب طايرة */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    color: #ff4d6d;
+    font-size: 25px;
+    animation: floatUp 4s linear;
+    pointer-events: none;
+}
 
-    <!-- عنوان اسمها -->
-    <div id="titleBox">Kingdom of Dodo 🙈👑🦋</div>
-
-    <div class="container">
-
-        <img src="48501a3cd0ffd3b5c11411651d43b36b.jpg" class="photo">
-        <div class="text-box"></div>
-
-        <img src="5e9cf4903041a56951bf28c0286a026f.jpg" class="photo">
-        <div class="text-box"></div>
-
-        <img src="82ae37130c74dc47e09559f89ad11ab5.jpg" class="photo">
-        <div class="text-box"></div>
-
-    </div>
-
-    <!-- الأغنية -->
-    <audio id="bg-music">
-        <source src="Dodo.song.mp3" type="audio/mpeg">
-    </audio>
-
-    <button id="playBtn">❤️ تشغيل الأغنية ❤️</button>
-
-    <script>
-        // زر تشغيل الأغنية
-        const music = document.getElementById("bg-music");
-        const playBtn = document.getElementById("playBtn");
-
-        playBtn.onclick = () => {
-            music.play();
-            playBtn.innerText = "🎶 الأغنية شغالة 🎶";
-            playBtn.style.background = "#2ed573";
-            playBtn.style.animation = "none";
-        };
-
-        // شاشة الدخول
-        const enterBtn = document.getElementById("enterBtn");
-        const loginMsg = document.getElementById("loginMsg");
-
-        enterBtn.onclick = () => {
-            const pwd = document.getElementById("pwd").value.trim();
-            if (pwd === "Do3ty♡") {
-                document.getElementById("loginScreen").style.display = "none";
-            } else {
-                loginMsg.textContent = "الرمز غير صحيح يا كتكوته 🙈";
-            }
-        };
-
-        // قلوب متحركة
-        function createHeart() {
-            const h = document.createElement("div");
-            h.classList.add("heart");
-            h.innerHTML = "❤️";
-            h.style.left = Math.random() * window.innerWidth + "px";
-            h.style.fontSize = (Math.random() * 20 + 20) + "px";
-            document.body.appendChild(h);
-            setTimeout(() => h.remove(), 4000);
-        }
-        setInterval(createHeart, 400);
-    </script>
-
-</body>
-</html>        
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-120vh) scale(1.6); opacity: 0; }
+}
 </style>
 </head>
 
 <body>
 
-    <!-- شاشة الدخول -->
-    <div id="loginScreen">
-        <div id="loginBox">
-            <h2>ادخلي مملكتك يا ملكتي 👑🦋</h2>
-            <input type="password" id="pwd" placeholder="اكتبي الرمز هنا ❤️">
-            <button id="enterBtn">دخول</button>
-            <div id="errorMsg">الرمز غلط يا كتكوته 🙈❌</div>
-        </div>
+<!-- شاشة الدخول -->
+<div id="loginScreen">
+    <div id="loginBox">
+        <h2>✨ ادخلي مملكتك يا ملكتي 👑🦋 ✨</h2>
+        <input id="pwd" type="password" placeholder="••••••••">
+        <button id="enterBtn">دخول</button>
+        <div id="loginMsg"></div>
     </div>
+</div>
 
-    <!-- الصفحة بعد الدخول -->
+<!-- محتوى الصفحة الحقيقي -->
+<div id="mainContent" style="display:none;">
+
+    <div class="titleBox">Kingdom of Dodo 🙈👑🦋</div>
+
     <div class="container">
 
+        <!-- الصورة 1 -->
         <img src="48501a3cd0ffd3b5c11411651d43b36b.jpg" class="photo">
-        <div class="text-box"></div>
+        <div class="text-box">
+            سأعتني بك ، رغم البعد بيننا  
+            سأعتني بك في دعائى ، وفي صلاتي ،  
+            وبين أحرفي  
+            وثنايا ذاكرتي 🥹♥️♥️♥️
+        </div>
 
+        <!-- الصورة 2 -->
         <img src="5e9cf4903041a56951bf28c0286a026f.jpg" class="photo">
-        <div class="text-box"></div>
+        <div class="text-box">
+            كيف جعلتَ هذا القلب  
+            بعد حبك ناصحا ؟ ♥️
+        </div>
 
+        <!-- الصورة 3 -->
         <img src="82ae37130c74dc47e09559f89ad11ab5.jpg" class="photo">
-        <div class="text-box"></div>
-
+        <div class="text-box">
+            ولكِ في الروح عشق لا ينتهي ،  
+            فكيف لا تدمنك روحي وأنتِ دوائها.!🫠♥️
+        </div>
     </div>
 
     <!-- الأغنية -->
@@ -270,42 +224,45 @@
 
     <button id="playBtn">❤️ تشغيل الأغنية ❤️</button>
 
-    <script>
-        // زر الأغنية
-        const music = document.getElementById("bg-music");
-        const btn = document.getElementById("playBtn");
+</div>
 
-        btn.onclick = () => {
-            music.play();
-            btn.innerText = "🎶 الأغنية شغالة 🎶";
-            btn.style.background = "#2ed573";
-            btn.style.animation = "none";
-        };
+<!-- سكربت التشغيل -->
+<script>
+document.getElementById("enterBtn").onclick = function() {
+    const pwd = document.getElementById("pwd").value.trim();
+    const msg = document.getElementById("loginMsg");
 
-        // شاشة الدخول
-        document.getElementById("enterBtn").onclick = () => {
-            const pwd = document.getElementById("pwd").value.trim();
-            const errorMsg = document.getElementById("errorMsg");
+    if (pwd === "Do3ty♡") {
+        document.getElementById("loginScreen").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+    } else {
+        msg.textContent = "الرمز غير صحيح يا جميله ❤️";
+    }
+};
 
-            if (pwd === "Do3ty♡") {
-                document.getElementById("loginScreen").style.display = "none";
-            } else {
-                errorMsg.style.display = "block";
-            }
-        };
+const music = document.getElementById("bg-music");
+const btn = document.getElementById("playBtn");
 
-        // قلوب طايرة
-        function createHeart() {
-            const h = document.createElement("div");
-            h.className = "heart";
-            h.innerHTML = "❤️";
-            h.style.left = Math.random() * window.innerWidth + "px";
-            h.style.fontSize = (Math.random() * 20 + 20) + "px";
-            document.body.appendChild(h);
-            setTimeout(() => h.remove(), 4000);
-        }
-        setInterval(createHeart, 400);
-    </script>
+btn.onclick = () => {
+    music.play();
+    btn.innerText = "🎶 الأغنية شغالة 🎶";
+    btn.style.background = "#2ed573";
+    btn.style.animation = "none";
+};
+
+/* قلوب */
+function createHeart() {
+    const h = document.createElement("div");
+    h.classList.add("heart");
+    h.innerHTML = "❤️";
+    h.style.left = Math.random() * window.innerWidth + "px";
+    h.style.fontSize = (Math.random() * 20 + 20) + "px";
+    document.body.appendChild(h);
+
+    setTimeout(() => h.remove(), 4000);
+}
+setInterval(createHeart, 400);
+</script>
 
 </body>
 </html>
