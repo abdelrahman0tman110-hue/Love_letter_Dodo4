@@ -1,226 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kingdom of Dodo 👑🦋</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kingdom of Dodo 👑🦋</title>
 
-    <style>
-        body {
-            margin: 0;
-            background: linear-gradient(135deg, #ffe5ec, #ffd6e8);
-            font-family: 'Arial', sans-serif;
-        }
+<style>
 
-        /* ───────────── صفحة الدخول ───────────── */
-        #login-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #ffdde6; /* خلفية كاملة بدون شفافية */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            text-align: center;
-        }
+    body{
+        margin:0;
+        background: linear-gradient(135deg,#ffe3ec,#ffd2e9);
+        font-family: "Arial", sans-serif;
+    }
 
-        #login-box {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            width: 85%;
-            max-width: 380px;
-            box-shadow: 0 0 25px rgba(0,0,0,0.2);
-        }
+    /* شاشة الدخول */
+    #login-screen{
+        position:fixed;
+        top:0; left:0;
+        width:100%; height:100%;
+        background:#ffd6e8; /* لون ثابت مش شفاف */
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+        z-index:9999;
+    }
 
-        .login-title {
-            font-size: 28px;
-            color: #d63384;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
+    #login-box{
+        background:white;
+        padding:30px;
+        border-radius:20px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.15);
+        text-align:center;
+        width: 80%;
+        max-width:350px;
+    }
 
-        .login-subtitle {
-            font-size: 17px;
-            color: #666;
-            margin-bottom: 18px;
-        }
+    #login-box input{
+        width:90%;
+        padding:12px;
+        border-radius:10px;
+        border:1px solid #ccc;
+        margin-bottom:15px;
+        font-size:16px;
+    }
 
-        #passwordInput {
-            width: 90%;
-            padding: 12px;
-            border-radius: 10px;
-            border: 2px solid #ff8fa3;
-            outline: none;
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
+    #enterBtn{
+        background:#ff4d6d;
+        color:white;
+        padding:12px 25px;
+        border-radius:25px;
+        border:none;
+        cursor:pointer;
+        font-size:18px;
+        transition:0.3s;
+    }
 
-        #enterBtn {
-            padding: 10px 20px;
-            background: #ff6b81;
-            color: white;
-            font-size: 18px;
-            border-radius: 30px;
-            border: none;
-            cursor: pointer;
-        }
+    #enterBtn:hover{
+        background:#ff2d55;
+        transform:scale(1.05);
+    }
 
-        /* ───────────── المحتوى ───────────── */
-        .container {
-            max-width: 850px;
-            margin: 40px auto;
-            padding: 20px;
-            background: rgba(255,255,255,0.85);
-            border-radius: 18px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
+    /* صندوق المحتوى */
+    .container{
+        max-width:850px;
+        margin:40px auto;
+        background:white;
+        padding:20px;
+        border-radius:20px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    }
 
-        /* عنوان المملكة */
-        .kingdom-title {
-            text-align: center;
-            font-size: 34px;
-            font-weight: bold;
-            color: #c2185b;
-            margin-bottom: 25px;
-        }
+    .title{
+        text-align:center;
+        font-size:32px;
+        color:#d63384;
+        margin-bottom:10px;
+    }
 
-        .photo {
-            width: 95%;
-            display: block;
-            margin: 20px auto;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-        }
+    .kingdom{
+        text-align:center;
+        font-size:26px;
+        color:#ff4d6d;
+        font-weight:bold;
+        margin-top:10px;
+    }
 
-        .text-box {
-            text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-            color: #444;
-            margin-bottom: 25px;
-            padding: 0 10px;
-        }
+    .photo{
+        width:95%;
+        display:block;
+        margin:25px auto 10px;
+        border-radius:20px;
+        box-shadow:0 8px 20px rgba(0,0,0,0.25);
+    }
 
-        /* زر الأغنية */
-        #playBtn {
-            background: #ff6b81;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 18px;
-            border-radius: 30px;
-            cursor: pointer;
-            display: block;
-            margin: 20px auto;
-            animation: glow 1.5s infinite alternate;
-        }
+    .text-box{
+        text-align:center;
+        font-size:19px;
+        font-weight:bold;
+        margin-bottom:25px;
+        color:#444;
+    }
 
-        @keyframes glow {
-            from { box-shadow: 0 0 10px #ff6b81; }
-            to { box-shadow: 0 0 20px #ff4757; }
-        }
+    /* زر الأغنية */
+    #playBtn{
+        background:#ff6b81;
+        color:white;
+        border:none;
+        padding:12px 25px;
+        font-size:18px;
+        border-radius:30px;
+        cursor:pointer;
+        transition:0.3s;
+        animation:glow 1.5s infinite alternate;
+        display:block;
+        margin:20px auto;
+    }
 
-        /* القلوب المتحركة */
-        .heart {
-            position: fixed;
-            bottom: -20px;
-            color: #ff4d6d;
-            font-size: 25px;
-            animation: floatUp 4s linear;
-            pointer-events: none;
-        }
+    @keyframes glow{
+        from{ box-shadow:0 0 10px #ff6b81; }
+        to{ box-shadow:0 0 20px #ff4757; }
+    }
 
-        @keyframes floatUp {
-            0% { transform: translateY(0) scale(1); opacity: 1; }
-            100% { transform: translateY(-120vh) scale(1.6); opacity: 0; }
-        }
-    </style>
+    /* الجملة اللي بتظهر بعد تشغيل الأغنية */
+    #songMessage{
+        text-align:center;
+        margin-top:10px;
+        font-size:20px;
+        font-weight:bold;
+        color:#ff3366;
+        display:none;
+    }
+
+    /* قلوب متحركة */
+    .heart{
+        position:fixed;
+        bottom:-20px;
+        font-size:25px;
+        color:#ff4d6d;
+        animation:floatUp 4s linear;
+        pointer-events:none;
+    }
+
+    @keyframes floatUp{
+        0%{ transform:translateY(0) scale(1); opacity:1; }
+        100%{ transform:translateY(-120vh) scale(1.7); opacity:0; }
+    }
+
+</style>
 </head>
 
 <body>
 
-    <!-- ───────────── صفحة الدخول ───────────── -->
-    <div id="login-screen">
-        <div id="login-box">
-            <div class="login-title">Welcome DODO ❤️</div>
-            <div class="login-subtitle">الدخول مسموح فقط لـ Dodo 👑🦋</div>
+<!-- شاشة الدخول -->
+<div id="login-screen">
+    <div id="login-box">
+        <h2>الدخول مسموح فقط لـ Dodo 👑</h2>
+        <p style="margin-bottom:15px; font-weight:bold;">ادخلي مملكتك يا ملكتي 👑🦋</p>
+        <input type="password" id="pass" placeholder="اكتبي رمز الدخول">
+        <button id="enterBtn">دخول</button>
+    </div>
+</div>
 
-            <input type="password" id="passwordInput" placeholder="ادخلي مملكتك يا ملكتي 👑🦋">
+<!-- المحتوى بعد الدخول -->
+<div class="container" id="main" style="display:none;">
 
-            <button id="enterBtn">Enter</button>
-        </div>
+    <div class="kingdom">Kingdom of Dodo 👑🦋</div>
+
+    <!-- الصور + الكلام -->
+    <img src="48501a3cd0ffd3b5c11411651d43b36b.jpg" class="photo">
+    <div class="text-box">
+        سأعتني بك ، رغم البعد بيننا  
+        <br> سأعتني بك في دعائى ، وفي صلاتي ،  
+        <br> وبين أحرفي وثنايا ذاكرتي 🥹♥️♥️♥️
     </div>
 
-    <!-- ───────────── المحتوى الأساسي ───────────── -->
-    <div class="container">
-
-        <div class="kingdom-title">Kingdom of Dodo 🙈👑🦋</div>
-
-        <!-- الصورة الأولى -->
-        <img src="48501a3cd0ffd3b5c11411651d43b36b.jpg" class="photo">
-        <div class="text-box">
-            سأعتني بك ، رغم البعد بيننا  
-            سأعتني بك في دعائى ، وفي صلاتي ،  
-            وبين أحرفي  
-            وثنايا ذاكرتي 🥹♥️♥️♥️
-        </div>
-
-        <!-- الصورة الثانية -->
-        <img src="5e9cf4903041a56951bf28c0286a026f.jpg" class="photo">
-        <div class="text-box">
-            كيف جعلتَ هذا القلب  
-            بعد حبك ناصحا ؟ ♥️
-        </div>
-
-        <!-- الصورة الثالثة -->
-        <img src="82ae37130c74dc47e09559f89ad11ab5.jpg" class="photo">
-        <div class="text-box">
-            ولكِ في الروح عشق لا ينتهي  
-            فكيف لا تدمنك روحي وأنتي دوائها.!🫠♥️
-        </div>
-
+    <img src="5e9cf4903041a56951bf28c0286a026f.jpg" class="photo">
+    <div class="text-box">
+        كيف جعلتِ هذا القلب  
+        <br> بعد حبكِ ناصحًا؟ ♥️
     </div>
 
-    <!-- الأغنية -->
-    <audio id="bg-music">
-        <source src="Dodo.song.mp3" type="audio/mpeg">
-    </audio>
+    <img src="82ae37130c74dc47e09559f89ad11ab5.jpg" class="photo">
+    <div class="text-box">
+        ولكِ في الروح عشق لا ينتهي،  
+        <br> فكيف لا تدمنكِ روحي وأنتِ دواؤها؟ 🫠♥️
+    </div>
 
-    <button id="playBtn">❤️ تشغيل الأغنية ❤️</button>
+</div>
 
-    <script>
-        document.getElementById("playBtn").onclick = () => {
-            bg-music.play();
-            playBtn.innerHTML = "🎶 يارب اتجوزك عشان اطلع عينك بقا واعملك تطبخي 🤝🏻😂 🎶";
-        };
+<!-- زر الأغنية -->
+<audio id="bg-music">
+    <source src="Dodo.song.mp3" type="audio/mpeg">
+</audio>
 
-        // صفحة الدخول برقم سري
-        document.getElementById("enterBtn").onclick = function() {
-            let pass = document.getElementById("passwordInput").value;
+<button id="playBtn">❤️ تشغيل الأغنية ❤️</button>
 
-            if (pass === "Do3ty♡") {
-                document.getElementById("login-screen").style.display = "none";
-            } else {
-                alert("غلط يا كتكوته...وكده انا ازعل 🙈🥺");
-            }
-        };
+<div id="songMessage">يارب اتجوزك عشان أطلع عينك وأخليكي تطبخي 🤝😂</div>
 
-        // القلوب المتحركة
-        function createHeart() {
-            const h = document.createElement("div");
-            h.classList.add("heart");
-            h.innerHTML = "❤️";
-            h.style.left = Math.random() * window.innerWidth + "px";
-            document.body.appendChild(h);
-            setTimeout(() => h.remove(), 4000);
+<!-- سكريبتات -->
+<script>
+
+    /* صفحة الدخول */
+    document.getElementById("enterBtn").onclick = function(){
+        const code = document.getElementById("pass").value;
+
+        if(code === "Do3ty♡"){
+            document.getElementById("login-screen").style.display = "none";
+            document.getElementById("main").style.display = "block";
+        } else {
+            alert("الرمز غلط يا دودو 🥺");
         }
-        setInterval(createHeart, 350);
-    </script>
+    };
+
+    /* تشغيل الأغنية */
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("playBtn");
+    const msg = document.getElementById("songMessage");
+
+    btn.onclick = () => {
+        music.play();
+        btn.innerText = "🎶 الأغنية شغالة 🎶";
+        btn.style.background = "#2ed573";
+        msg.style.display = "block";
+    };
+
+    /* قلوب متحركة */
+    function createHeart(){
+        const h = document.createElement("div");
+        h.classList.add("heart");
+        h.innerHTML = "❤️";
+        h.style.left = Math.random()*window.innerWidth + "px";
+        h.style.fontSize = (Math.random()*20+20)+"px";
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(),4000);
+    }
+    setInterval(createHeart,400);
+
+</script>
 
 </body>
 </html>
