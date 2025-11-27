@@ -3,43 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DODO Kingdom ❤️</title>
+    <title>Kingdom of Dodo ❤️👑🦋</title>
 
     <style>
         body {
             margin: 0;
-            background: linear-gradient(135deg, #ffe6f2, #ffd1e8);
+            background: linear-gradient(135deg, #ffe5ec, #ffd6e8);
             font-family: "Tajawal", sans-serif;
         }
-<!-- برواز الترحيب -->
-<div id="welcomeBox">
-    Kingdom of Dodo 🙈👑🦋
-</div>
 
-<style>
-    #welcomeBox {
-        width: 90%;
-        margin: 20px auto;
-        padding: 15px;
-        text-align: center;
-        font-size: 26px;
-        font-weight: bold;
-        color: white;
-        background: linear-gradient(135deg, #ff6b81, #ff4757);
-        border-radius: 20px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        opacity: 0;
-        transform: translateY(-30px);
-        animation: fadeInDown 1.4s forwards ease-out;
-    }
-
-    @keyframes fadeInDown {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-</style>
         /* شاشة الدخول */
         #loginScreen {
             position: fixed;
@@ -50,76 +22,104 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            text-align: center;
             z-index: 999;
+            text-align: center;
         }
 
         #loginBox {
             background: white;
             padding: 25px;
             border-radius: 20px;
-            box-shadow: 0 0 25px rgba(0,0,0,0.15);
-            width: 80%;
+            width: 85%;
             max-width: 350px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            animation: fadeIn 1.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(.8); }
+            to   { opacity: 1; transform: scale(1); }
         }
 
         #loginBox h2 {
-            margin: 0 0 15px;
+            margin-bottom: 10px;
             color: #ff4d6d;
-            font-size: 24px;
+            font-size: 26px;
         }
 
         #pwd {
             width: 90%;
-            padding: 10px;
-            border: 2px solid #ff99b5;
-            border-radius: 10px;
-            font-size: 18px;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid #ff4d6d;
+            margin-top: 10px;
             text-align: center;
+            font-size: 18px;
         }
 
         #enterBtn {
-            margin-top: 15px;
-            padding: 10px 20px;
             background: #ff6b81;
-            border: none;
             color: white;
-            font-size: 18px;
-            border-radius: 12px;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 12px;
+            border-radius: 10px;
             cursor: pointer;
+            font-size: 18px;
             transition: 0.3s;
         }
 
         #enterBtn:hover {
             background: #ff4757;
+            transform: scale(1.05);
         }
 
-        #errorMsg {
+        #loginMsg {
             margin-top: 10px;
             color: red;
-            display: none;
             font-weight: bold;
         }
 
-        /* الصفحة الرئيسية */
+        /* صندوق الاسم */
+        #titleBox {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 32px;
+            color: #ff4d6d;
+            font-weight: bold;
+            animation: slideDown 1.4s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* المحتوى */
         .container {
             max-width: 850px;
             margin: 40px auto;
             padding: 20px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
         .photo {
-            width: 100%;
+            width: 95%;
+            display: block;
+            margin: 20px auto;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-            margin-bottom: 10px;
         }
 
         .text-box {
             text-align: center;
-            margin-bottom: 35px;
+            margin-top: 10px;
             font-size: 20px;
             color: #444;
+            font-weight: bold;
+            min-height: 40px;
         }
 
         /* زر الأغنية */
@@ -134,12 +134,12 @@
             transition: 0.3s;
             animation: glow 1.5s infinite alternate;
             display: block;
-            margin: 30px auto;
+            margin: 20px auto;
         }
 
         @keyframes glow {
             from { box-shadow: 0 0 10px #ff6b81; }
-            to { box-shadow: 0 0 20px #ff4757; }
+            to   { box-shadow: 0 0 20px #ff4757; }
         }
 
         /* القلوب */
@@ -149,13 +149,92 @@
             color: #ff4d6d;
             font-size: 25px;
             animation: floatUp 4s linear;
+            pointer-events: none;
         }
 
         @keyframes floatUp {
             0% { transform: translateY(0) scale(1); opacity: 1; }
-            100% { transform: translateY(-130vh) scale(1.6); opacity: 0; }
+            100% { transform: translateY(-120vh) scale(1.6); opacity: 0; }
         }
     </style>
+</head>
+
+<body>
+
+    <!-- شاشة الدخول -->
+    <div id="loginScreen">
+        <div id="loginBox">
+            <h2>ادخلي مملكتك يا ملكتي 👑🦋</h2>
+            <input type="password" id="pwd" placeholder="اكتبي رمز الدخول">
+            <button id="enterBtn">دخول ❤️</button>
+            <div id="loginMsg"></div>
+        </div>
+    </div>
+
+    <!-- عنوان اسمها -->
+    <div id="titleBox">Kingdom of Dodo 🙈👑🦋</div>
+
+    <div class="container">
+
+        <img src="48501a3cd0ffd3b5c11411651d43b36b.jpg" class="photo">
+        <div class="text-box"></div>
+
+        <img src="5e9cf4903041a56951bf28c0286a026f.jpg" class="photo">
+        <div class="text-box"></div>
+
+        <img src="82ae37130c74dc47e09559f89ad11ab5.jpg" class="photo">
+        <div class="text-box"></div>
+
+    </div>
+
+    <!-- الأغنية -->
+    <audio id="bg-music">
+        <source src="Dodo.song.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="playBtn">❤️ تشغيل الأغنية ❤️</button>
+
+    <script>
+        // زر تشغيل الأغنية
+        const music = document.getElementById("bg-music");
+        const playBtn = document.getElementById("playBtn");
+
+        playBtn.onclick = () => {
+            music.play();
+            playBtn.innerText = "🎶 الأغنية شغالة 🎶";
+            playBtn.style.background = "#2ed573";
+            playBtn.style.animation = "none";
+        };
+
+        // شاشة الدخول
+        const enterBtn = document.getElementById("enterBtn");
+        const loginMsg = document.getElementById("loginMsg");
+
+        enterBtn.onclick = () => {
+            const pwd = document.getElementById("pwd").value.trim();
+            if (pwd === "Do3ty♡") {
+                document.getElementById("loginScreen").style.display = "none";
+            } else {
+                loginMsg.textContent = "الرمز غير صحيح يا كتكوته 🙈";
+            }
+        };
+
+        // قلوب متحركة
+        function createHeart() {
+            const h = document.createElement("div");
+            h.classList.add("heart");
+            h.innerHTML = "❤️";
+            h.style.left = Math.random() * window.innerWidth + "px";
+            h.style.fontSize = (Math.random() * 20 + 20) + "px";
+            document.body.appendChild(h);
+            setTimeout(() => h.remove(), 4000);
+        }
+        setInterval(createHeart, 400);
+    </script>
+
+</body>
+</html>        
+</style>
 </head>
 
 <body>
