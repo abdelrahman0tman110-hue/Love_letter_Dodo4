@@ -12,32 +12,30 @@ body {
     background: linear-gradient(135deg, #ffe5ec, #ffd6e8);
     font-family: "Arial", sans-serif;
     overflow-x: hidden;
+    text-align:center;
 }
 
-/* ===== عنوان Do3ty في إطار جميل ===== */
+/* ===== عنوان Do3ty ===== */
 .top-frame {
-    width: 320px;
-    margin: 30px auto 10px;
+    margin: 25px auto 10px;
+    background: white;
+    border: 6px solid #ff4d6d;
+    width: 270px;
     padding: 12px;
-    background: #ffffffaa;
-    border: 6px solid #d63384;
-    border-radius: 15px;
-    text-align: center;
+    border-radius: 12px;
     font-size: 28px;
-    color: #d63384;
+    color: #ff4d6d;
     font-weight: bold;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
-/* ===== إطار الصورة المعلقة ===== */
+/* ===== إطار الصورة المعلّق ===== */
 .frame-container {
     width: 330px;
-    margin: 40px auto 20px;
+    margin: 20px auto 20px;
     position: relative;
-    text-align: center;
 }
 
-/* الحبل المثلث */
 .rope {
     width: 0;
     height: 0;
@@ -47,20 +45,18 @@ body {
     margin: 0 auto;
 }
 
-/* الدبوس */
 .pin {
     width: 35px;
     height: 35px;
     background: radial-gradient(circle, #ff4d6d, #b30027);
     border-radius: 50%;
     position: absolute;
-    top: -14px;
+    top: -12px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 5;
 }
 
-/* البرواز */
 .frame {
     width: 330px;
     padding: 10px;
@@ -70,91 +66,80 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
-/* الصورة */
 .photo {
     width: 100%;
     border-radius: 8px;
 }
 
-/* الرسالة */
-.message-box {
-    text-align: center;
+/* ===== رسالة "كل هذا صنع..." ===== */
+.footer-text {
+    margin-top: 25px;
     font-size: 22px;
-    margin: 25px auto;
-    width: 90%;
-    line-height: 1.7;
+    line-height: 1.6;
     color: #444;
-    font-weight: bold;
+    padding: 0 15px;
 }
 
-/* ===== برواز الفيديو ===== */
+/* ===== إطار الفيديو ===== */
 .video-frame {
     width: 90%;
     margin: 25px auto;
     padding: 12px;
-    background: #ffffffdd;
-    border: 6px solid #ff8fab;
-    border-radius: 18px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    background: #fff;
+    border: 6px solid #ff8fa3;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 .video-frame video {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
-/* زر تشغيل وإيقاف */
+/* زر تشغيل/إيقاف */
 .play-btn {
-    display: block;
-    margin: 10px auto 0;
-    background: #ff6b81;
+    margin-top: 10px;
+    background: #ff4d6d;
     color: white;
     padding: 10px 22px;
-    font-size: 18px;
     border: none;
-    border-radius: 30px;
+    border-radius: 25px;
+    font-size: 18px;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
-}
-
-.play-btn:hover {
-    background: #ff4757;
-}
-
-/* ===== الجملة تحت ===== */
-.footer-text {
-    text-align: center;
-    font-size: 20px;
-    margin-top: 25px;
-    line-height: 1.7;
-    color: #444;
-    padding: 0 15px;
-    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 /* زر الرجوع */
 .back-btn {
-    display: block;
-    margin: 25px auto;
-    background:#ff6b81;
-    color:white;
-    padding:12px 25px;
-    border-radius:30px;
-    font-size:20px;
-    text-decoration:none;
+    background:#ff6b81; 
+    color:white; 
+    padding:12px 25px; 
+    border-radius:30px; 
+    font-size:20px; 
+    text-decoration:none; 
     box-shadow:0 4px 12px rgba(0,0,0,0.2);
 }
 
-.back-btn:hover {
-    background:#ff4757;
+/* Powered by Body */
+.powered {
+    margin-top: 15px;
+    color:#444;
+    font-size: 14px;
 }
 
-/* Powered */
-.powered {
-    text-align:center;
-    margin:20px 0 30px;
-    font-size:14px;
-    color:#333;
+/* ===== الاسم المتطاير ===== */
+.floatName {
+    position: fixed;
+    bottom: -20px;
+    font-size: 28px;
+    color: #ff4d6d;
+    animation: floatUp 4s linear;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-120vh) scale(1.6); opacity: 0; }
 }
 
 </style>
@@ -162,12 +147,11 @@ body {
 
 <body>
 
-<!-- ===== 1) إطار اسم Do3ty ===== -->
+<!-- ===== عنوان Do3ty ===== -->
 <div class="top-frame">Do3ty 🫠🥰</div>
 
-<!-- ===== 2) الصورة المعلقة ===== -->
+<!-- ===== الصورة المعلقة ===== -->
 <div class="frame-container">
-
     <div class="rope"></div>
     <div class="pin"></div>
 
@@ -176,49 +160,49 @@ body {
     </div>
 </div>
 
-<!-- ===== 3) الرسالة ===== -->
-<div class="message-box">
-    كل هذا صُنع بكل حب لصغيرتي دو🙈♥️🥰🥰
-</div>
-
-<!-- ===== 4) الفيديو الأول ===== -->
-<div class="video-frame">
-    <video id="video1">
-        <source src="VID_20251128_131744_658.mp4" type="video/mp4">
-    </video>
-    <button class="play-btn" onclick="toggleVideo('video1', this)">▶ تشغيل الفيديو الأول</button>
-</div>
-
-<!-- ===== 5) الفيديو الثاني ===== -->
-<div class="video-frame">
-    <video id="video2">
-        <source src="Asala_details_something.mp4.mp4" type="video/mp4">
-    </video>
-    <button class="play-btn" onclick="toggleVideo('video2', this)">▶ تشغيل الفيديو الثاني</button>
-</div>
-
-<!-- ===== 6) جملة الحب ===== -->
+<!-- ===== الرسالة ===== -->
 <div class="footer-text">
     كل هذا صُنع بكل حب لصغيرتي دو🙈♥️🥰🥰
 </div>
 
-<!-- ===== 7) زر الرجوع ===== -->
-<a href="index.html" class="back-btn">🔙 اضغطي هنا بس براحه 🙈😂</a>
+<!-- ===== الفيديو الأول ===== -->
+<div class="video-frame">
+    <video id="video1" src="VID_20251128_131744_658.mp4"></video>
+    <button class="play-btn" onclick="toggleVideo('video1')">تشغيل / إيقاف 🎬</button>
+</div>
 
-<!-- ===== 8) Powered ===== -->
-<div class="powered">Powered by Body 2025 ❤️</div>
+<!-- ===== الفيديو الثاني ===== -->
+<div class="video-frame">
+    <video id="video2" src="Asala_details_something.mp4.mp4"></video>
+    <button class="play-btn" onclick="toggleVideo('video2')">تشغيل / إيقاف 🎶</button>
+</div>
 
+<!-- ===== زر الرجوع ===== -->
+<div style="margin-top:30px;">
+    <a href="index.html" class="back-btn">🔙 اضغطي هنا يا دودو 🥺💕</a>
+</div>
+
+<!-- ===== Powered by ===== -->
+<div class="powered">Powered by Body 2025</div>
+
+<!-- ===== الاسم المتطاير ===== -->
 <script>
-function toggleVideo(id, btn) {
-    const v = document.getElementById(id);
+function createFloatingName() {
+    const t = document.createElement("div");
+    t.classList.add("floatName");
+    t.innerHTML = "🫶🏻🥰دو";
+    t.style.left = Math.random() * window.innerWidth + "px";
+    t.style.fontSize = (Math.random() * 15 + 20) + "px";
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 4000);
+}
+setInterval(createFloatingName, 450);
 
-    if(v.paused){
-        v.play();
-        btn.innerText = "⏸ إيقاف";
-    } else {
-        v.pause();
-        btn.innerText = "▶ تشغيل";
-    }
+/* ===== زر تشغيل وإيقاف الفيديو ===== */
+function toggleVideo(id) {
+    const vid = document.getElementById(id);
+    if (vid.paused) vid.play();
+    else vid.pause();
 }
 </script>
 
