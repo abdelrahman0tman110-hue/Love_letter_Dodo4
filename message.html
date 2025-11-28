@@ -55,11 +55,13 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
+/* الصورة داخل البرواز */
 .photo {
     width: 100%;
     border-radius: 8px;
 }
 
+/* اسم Do3ty داخل البرواز */
 .frame-title {
     margin-top: 10px;
     font-size: 22px;
@@ -67,14 +69,42 @@ body {
     color: #d63384;
 }
 
+/* ===== زر الرسالة ===== */
+.msg-btn {
+    background:#ff6b81;
+    color:white;
+    padding:12px 25px;
+    border-radius:30px;
+    font-size:20px;
+    text-decoration:none;
+    display:block;
+    margin:25px auto;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+    width: fit-content;
+    transition:0.3s;
+}
+.msg-btn:hover{
+    transform:scale(1.05);
+    background:#ff4757;
+}
+
 /* ===== الجملة تحت ===== */
 .footer-text {
     text-align: center;
     font-size: 22px;
-    margin-top: 20px;
+    margin-top: 15px;
+    margin-bottom: 10px;
     line-height: 1.7;
     color: #444;
     padding: 0 15px;
+}
+
+/* Powered by */
+.powered {
+    text-align:center;
+    font-size:13px;
+    color:#333;
+    margin-bottom:25px;
 }
 
 /* ===== الاسم المتطاير ===== */
@@ -92,51 +122,12 @@ body {
     100% { transform: translateY(-120vh) scale(1.6); opacity: 0; }
 }
 
-/* ===== نافذة عرض الصورة (المسج) ===== */
-#popup {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.75);
-    backdrop-filter: blur(3px);
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-}
-
-.popup-content {
-    background: white;
-    padding: 10px;
-    border-radius: 12px;
-    max-width: 90%;
-    box-shadow: 0 0 25px rgba(0,0,0,0.4);
-    border: 5px solid #d9b68c;
-}
-
-.popup-content img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-.close-btn {
-    margin-top: 10px;
-    background: #ff6b81;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
-    display: block;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- ======= الإطار المعلق ======= -->
+<!-- ===== الإطار المعلّق ===== -->
 <div class="frame-container">
 
     <div class="rope"></div>
@@ -148,34 +139,22 @@ body {
     </div>
 </div>
 
-<!-- ===== الجملة تحت ===== -->
+<!-- ===== زر الرسالة ===== -->
+<a href="Dodo's message.jpg" class="msg-btn" target="_blank">
+    Message for you 💌
+</a>
+
+<!-- ===== الجملة تحت الزر ===== -->
 <div class="footer-text">
     كل هذا صُنع بكل حب لصغيرتي دو🙈♥️🥰🥰
 </div>
 
-<!-- ===== زر فتح رسالة الصورة ===== -->
-<div style="text-align:center; margin-top:30px;">
-    <button onclick="openPopup()" style="
-        background:#d63384;
-        color:white;
-        padding:14px 30px;
-        border-radius:30px;
-        border:none;
-        font-size:20px;
-        cursor:pointer;
-        box-shadow:0 4px 12px rgba(0,0,0,0.2);
-    ">💌 Massage for You</button>
+<!-- ===== Powered by ===== -->
+<div class="powered">
+    Powered by Body
 </div>
 
-<!-- ===== النافذة التي تظهر فيها الصورة ===== -->
-<div id="popup">
-    <div class="popup-content">
-        <img src="Dodo's message.jpg">
-        <button class="close-btn" onclick="closePopup()">إغلاق</button>
-    </div>
-</div>
-
-<!-- ===== الاسم المتطاير ===== -->
+<!-- ===== الاسم المتطاير من تحت ===== -->
 <script>
 function createFloatingName() {
     const t = document.createElement("div");
@@ -187,28 +166,23 @@ function createFloatingName() {
 
     setTimeout(() => t.remove(), 4000);
 }
-setInterval(createFloatingName, 450);
 
-/* popup */
-function openPopup() {
-    document.getElementById("popup").style.display = "flex";
-}
-function closePopup() {
-    document.getElementById("popup").style.display = "none";
-}
+setInterval(createFloatingName, 450);
 </script>
 
 <!-- ===== زر الرجوع ===== -->
-<div style="text-align:center; margin:40px 0;">
-    <a href="index.html" style="
-        background:#ff6b81;
-        color:white;
-        padding:12px 25px;
-        border-radius:30px;
-        font-size:20px;
-        text-decoration:none;
+<div style="text-align:center; margin-top:10px;">
+    <a href="index.html" 
+    style="
+        background:#6c63ff; 
+        color:white; 
+        padding:12px 25px; 
+        border-radius:30px; 
+        font-size:20px; 
+        text-decoration:none; 
         box-shadow:0 4px 12px rgba(0,0,0,0.2);
-    ">🔙 اضغطي هنا بس براحه😂🙈♥️</a>
+        transition:0.3s;
+    ">🔙 Back</a>
 </div>
 
 </body>
