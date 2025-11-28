@@ -14,7 +14,7 @@ body {
     overflow-x: hidden;
 }
 
-/* ===== إطار الصورة معلّق ===== */
+/* ===== إطار الصورة المعلق ===== */
 .frame-container {
     width: 330px;
     margin: 60px auto 20px;
@@ -69,8 +69,8 @@ body {
     color: #d63384;
 }
 
-/* ===== زر الرسالة ===== */
-.msg-btn {
+/* ===== الزر الذي يفتح الرسالة ===== */
+.message-btn {
     background:#ff6b81;
     color:white;
     padding:12px 25px;
@@ -78,36 +78,47 @@ body {
     font-size:20px;
     text-decoration:none;
     display:block;
-    margin:25px auto;
-    box-shadow:0 4px 12px rgba(0,0,0,0.2);
     width: fit-content;
+    margin:25px auto 15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
     transition:0.3s;
 }
-.msg-btn:hover{
-    transform:scale(1.05);
+
+.message-btn:hover {
     background:#ff4757;
+    transform: scale(1.05);
 }
 
-/* ===== الجملة تحت ===== */
+/* الرسالة (الصورة) */
+.message-image {
+    width: 90%;
+    max-width: 380px;
+    display: none;
+    margin: 10px auto;
+    border-radius: 12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* ===== الجملة تحت الزر ===== */
 .footer-text {
     text-align: center;
     font-size: 22px;
-    margin-top: 15px;
-    margin-bottom: 10px;
+    margin-top: 20px;
     line-height: 1.7;
     color: #444;
     padding: 0 15px;
 }
 
-/* Powered by */
+/* Powered by Body */
 .powered {
     text-align:center;
-    font-size:13px;
+    margin-top: 40px;
+    font-size: 14px;
     color:#333;
-    margin-bottom:25px;
+    opacity: .8;
 }
 
-/* ===== الاسم المتطاير ===== */
+/* ===== الاسم المتطاير زي القلوب ===== */
 .floatName {
     position: fixed;
     bottom: -20px;
@@ -139,20 +150,39 @@ body {
     </div>
 </div>
 
+
 <!-- ===== زر الرسالة ===== -->
-<a href="Dodo's message.jpg" class="msg-btn" target="_blank">
-    Message for you 💌
-</a>
+<a class="message-btn" onclick="showMessage()">💌 Massage for You</a>
+
+<!-- صورة الرسالة -->
+<img src="Dodo's message.jpg" id="msgImage" class="message-image">
+
 
 <!-- ===== الجملة تحت الزر ===== -->
 <div class="footer-text">
     كل هذا صُنع بكل حب لصغيرتي دو🙈♥️🥰🥰
 </div>
 
-<!-- ===== Powered by ===== -->
-<div class="powered">
-    Powered by Body
+
+<!-- ===== زر الرجوع إلى الصفحة الأولى ===== -->
+<div style="text-align:center; margin-top:25px;">
+    <a href="index.html" 
+    style="
+        background:#6c5ce7; 
+        color:white; 
+        padding:12px 25px; 
+        border-radius:30px; 
+        font-size:20px; 
+        text-decoration:none; 
+        box-shadow:0 4px 12px rgba(0,0,0,0.2);
+        transition:0.3s;
+    ">🔙 اضغطي هنا بس براحه 😂🙈💜</a>
 </div>
+
+<!-- Powered by Body -->
+<div class="powered">Powered by Body</div>
+
+
 
 <!-- ===== الاسم المتطاير من تحت ===== -->
 <script>
@@ -170,20 +200,12 @@ function createFloatingName() {
 setInterval(createFloatingName, 450);
 </script>
 
-<!-- ===== زر الرجوع ===== -->
-<div style="text-align:center; margin-top:10px;">
-    <a href="index.html" 
-    style="
-        background:#6c63ff; 
-        color:white; 
-        padding:12px 25px; 
-        border-radius:30px; 
-        font-size:20px; 
-        text-decoration:none; 
-        box-shadow:0 4px 12px rgba(0,0,0,0.2);
-        transition:0.3s;
-    ">🔙 Back</a>
-</div>
+<!-- إظهار الصورة عند الضغط على الزر -->
+<script>
+function showMessage() {
+    document.getElementById("msgImage").style.display = "block";
+}
+</script>
 
 </body>
 </html>
