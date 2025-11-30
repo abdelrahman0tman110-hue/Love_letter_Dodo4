@@ -143,11 +143,11 @@ body {
 .decor {
     text-align: center;
     font-size: 22px;
-    margin: 20px 0;
+    margin: 25px 0;
     color: #d63384;
 }
 
-/* ===== السلايدر زي الانستجرام ===== */
+/* ===== السلايدر ===== */
 .slider {
     width: 330px;
     margin: 20px auto;
@@ -238,7 +238,7 @@ body {
 <!-- ===== عنوان Do3ty ===== -->
 <div class="title-frame">Do3ty 🫠🥰</div>
 
-<!-- ===== الإطار المعلّق ===== -->
+<!-- ===== الإطار المعلق ===== -->
 <div class="frame-container">
     <div class="rope"></div>
     <div class="pin"></div>
@@ -262,36 +262,17 @@ function toggleMessage() {
 }
 </script>
 
-<!-- ===== الفيديو الأول ===== -->
-<div class="video-frame">
-    <video id="v1" width="100%">
-        <source src="D36809643135.mp4" type="video/mp4">
-    </video>
-</div>
+<!-- ===== الفيديوهات القديمة (1 → 4) ===== -->
+<div class="video-frame"><video id="v1" width="100%"><source src="D36809643135.mp4" type="video/mp4"></video></div>
 <button class="vbtn" onclick="toggleVid('v1', this)">▶ تشغيل / ⏸ إيقاف</button>
 
-<!-- ===== الفيديو الثاني ===== -->
-<div class="video-frame">
-    <video id="v2" width="100%">
-        <source src="Asala_details_something.mp4.mp4" type="video/mp4">
-    </video>
-</div>
+<div class="video-frame"><video id="v2" width="100%"><source src="Asala_details_something.mp4.mp4" type="video/mp4"></video></div>
 <button class="vbtn" onclick="toggleVid('v2', this)">▶ تشغيل / ⏸ إيقاف</button>
 
-<!-- ===== الفيديو الثالث ===== -->
-<div class="video-frame">
-    <video id="v3" width="100%">
-        <source src="VID_20251128_131744_658.mp4" type="video/mp4">
-    </video>
-</div>
+<div class="video-frame"><video id="v3" width="100%"><source src="VID_20251128_131744_658.mp4" type="video/mp4"></video></div>
 <button class="vbtn" onclick="toggleVid('v3', this)">▶ تشغيل / ⏸ إيقاف</button>
 
-<!-- ===== الفيديو الرابع ===== -->
-<div class="video-frame">
-    <video id="v4" width="100%">
-        <source src="R4684478532.mp4" type="video/mp4">
-    </video>
-</div>
+<div class="video-frame"><video id="v4" width="100%"><source src="R4684478532.mp4" type="video/mp4"></video></div>
 <button class="vbtn" onclick="toggleVid('v4', this)">▶ تشغيل / ⏸ إيقاف</button>
 
 <script>
@@ -302,36 +283,24 @@ function toggleVid(id, btn) {
 }
 </script>
 
-<!-- ===== الفاصل الزخرفي ===== -->
+<!-- ===== الفاصل الزخرفي الثاني قبل الفيديوهين الجداد ===== -->
 <div class="decor">❀ ✿ ❀ ✿ ❀</div>
 
-<!-- ===== السلايدر ===== -->
-<div class="slider">
-    <img id="slide" class="slide-img" src="IMG_20251128_232159_253.jpg">
-    <div class="dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
+<!-- ====================== الفيديو الجديد 1 ====================== -->
+<div class="video-frame">
+    <video id="v5" width="100%">
+        <source src="VID_20251201_000802_188.mp4" type="video/mp4">
+    </video>
 </div>
+<button class="vbtn" onclick="toggleVid('v5', this)">▶ تشغيل / ⏸ إيقاف</button>
 
-<script>
-let imgs = [
-    "IMG_20251128_232159_253.jpg",
-    "IMG_20251128_232158_300.jpg",
-    "IMG_20251128_232158_975.jpg"
-];
-
-let index = 0;
-setInterval(() => {
-    index = (index + 1) % imgs.length;
-    document.getElementById("slide").src = imgs[index];
-
-    let dots = document.querySelectorAll(".dot");
-    dots.forEach((d,i)=>d.classList.remove("active"));
-    dots[index].classList.add("active");
-}, 3000);
-</script>
+<!-- ====================== الفيديو الجديد 2 ====================== -->
+<div class="video-frame">
+    <video id="v6" width="100%">
+        <source src="VN٢٠٢٥١٢٠١_٠٠٢١٣٩.mp4" type="video/mp4">
+    </video>
+</div>
+<button class="vbtn" onclick="toggleVid('v6', this)">▶ تشغيل / ⏸ إيقاف</button>
 
 <!-- ===== الجملة ===== -->
 <div class="footer-text">
