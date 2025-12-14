@@ -9,12 +9,11 @@
 body {
     margin: 0;
     background: linear-gradient(135deg, #ffe5ec, #ffd6e8);
-    font-family: "Arial", sans-serif;
+    font-family: Arial, sans-serif;
     overflow-x: hidden;
     padding-bottom: 80px;
 }
 
-/* ===== عنوان ===== */
 .title-frame {
     text-align: center;
     margin: 25px auto 10px;
@@ -29,7 +28,72 @@ body {
     box-shadow: 0 8px 25px rgba(0,0,0,0.25);
 }
 
-/* ===== إطار الفيديو ===== */
+.frame-container {
+    width: 330px;
+    margin: 20px auto;
+    position: relative;
+    text-align: center;
+}
+
+.rope {
+    width: 0;
+    height: 0;
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-bottom: 60px solid #c9a06b;
+    margin: 0 auto;
+}
+
+.pin {
+    width: 35px;
+    height: 35px;
+    background: radial-gradient(circle, #ff4d6d, #b30027);
+    border-radius: 50%;
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+.frame {
+    width: 330px;
+    padding: 10px;
+    background: #fff;
+    border: 8px solid #c9a06b;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.photo {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.msg-btn {
+    display: block;
+    margin: 15px auto;
+    padding: 12px 25px;
+    background: #ff6b81;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#messageBox {
+    display: none;
+    text-align: center;
+    margin: 25px auto;
+}
+
+.message-photo {
+    width: 330px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
 .video-frame {
     width: 350px;
     margin: 20px auto;
@@ -38,26 +102,8 @@ body {
     border-radius: 18px;
     background: #fff;
     box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    position: relative;
 }
 
-/* ===== نص فوق الفيديو ===== */
-.video-text {
-    position: absolute;
-    top: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255,255,255,0.9);
-    padding: 8px 14px;
-    border-radius: 12px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #d63384;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    z-index: 5;
-}
-
-/* ===== زر تشغيل ===== */
 .vbtn {
     display: block;
     margin: 10px auto 25px;
@@ -76,6 +122,39 @@ body {
     margin: 25px 0;
     color: #d63384;
 }
+
+.footer-text {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 25px;
+    color: #444;
+}
+
+.back-btn {
+    display: block;
+    margin: 30px auto 10px;
+    padding: 12px 25px;
+    background: #ff6b81;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 20px;
+    width: fit-content;
+}
+
+.floatName {
+    position: fixed;
+    bottom: -20px;
+    font-size: 26px;
+    color: #ff4d6d;
+    animation: floatUp 4s linear;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-120vh); opacity: 0; }
+}
 </style>
 </head>
 
@@ -83,51 +162,46 @@ body {
 
 <div class="title-frame">Do3ty 🫠🥰</div>
 
-<!-- ===== الفيديوهات القديمة ===== -->
-<div class="video-frame"><video id="v1" width="100%"><source src="D36809643135.mp4"></video></div>
-<button class="vbtn" onclick="toggleVid('v1',this)">▶ تشغيل / ⏸</button>
-
-<div class="video-frame"><video id="v2" width="100%"><source src="Asala_details_something.mp4.mp4"></video></div>
-<button class="vbtn" onclick="toggleVid('v2',this)">▶ تشغيل / ⏸</button>
-
-<div class="video-frame"><video id="v3" width="100%"><source src="VID_20251128_131744_658.mp4"></video></div>
-<button class="vbtn" onclick="toggleVid('v3',this)">▶ تشغيل / ⏸</button>
-
-<div class="video-frame"><video id="v4" width="100%"><source src="R4684478532.mp4"></video></div>
-<button class="vbtn" onclick="toggleVid('v4',this)">▶ تشغيل / ⏸</button>
-
-<div class="decor">❀ ✿ ❀ ✿ ❀</div>
-
-<!-- ===== الفيديوهات الجديدة ===== -->
-
-<div class="video-frame">
-    <div class="video-text">حقك على عيني يا نور عيني 🥹♥️</div>
-    <video id="v8" width="100%">
-        <source src="VID_20251214_180129_013.mp4">
-    </video>
+<div class="frame-container">
+    <div class="rope"></div>
+    <div class="pin"></div>
+    <div class="frame">
+        <img src="1764248956999.jpg" class="photo">
+    </div>
 </div>
-<button class="vbtn" onclick="toggleVid('v8',this)">▶ تشغيل / ⏸</button>
 
-<div class="video-frame">
-    <video id="v9" width="100%">
-        <source src="VID_20251214_180738_240.mp4">
-    </video>
-</div>
-<button class="vbtn" onclick="toggleVid('v9',this)">▶ تشغيل / ⏸</button>
+<button class="msg-btn" onclick="toggleMessage()">💌 Message for you</button>
 
-<div class="video-frame">
-    <video id="v10" width="100%">
-        <source src="VID_20251214_180859_481.mp4">
-    </video>
+<div id="messageBox">
+    <img src="Dodo's message.jpg" class="message-photo">
 </div>
-<button class="vbtn" onclick="toggleVid('v10',this)">▶ تشغيل / ⏸</button>
 
 <script>
-function toggleVid(id,btn){
- let v=document.getElementById(id);
- if(v.paused){v.play();btn.innerHTML="⏸ إيقاف";}
- else{v.pause();btn.innerHTML="▶ تشغيل";}
+function toggleMessage() {
+    const box = document.getElementById("messageBox");
+    box.style.display = box.style.display === "none" ? "block" : "none";
 }
+
+function toggleVid(id, btn) {
+    const v = document.getElementById(id);
+    if (v.paused) {
+        v.play();
+        btn.innerHTML = "⏸ إيقاف";
+    } else {
+        v.pause();
+        btn.innerHTML = "▶ تشغيل";
+    }
+}
+
+function createFloatingName() {
+    const t = document.createElement("div");
+    t.className = "floatName";
+    t.innerHTML = "🫶🏻🥰دو";
+    t.style.left = Math.random() * window.innerWidth + "px";
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 4000);
+}
+setInterval(createFloatingName, 450);
 </script>
 
 </body>
