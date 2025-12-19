@@ -351,7 +351,7 @@ body {
 </div>
 <button class="vbtn" onclick="toggleVid('v207', this)">▶ تشغيل / ⏸ إيقاف</button>
 
-    <!-- 🌹 فاصل رومانسي -->
+<!-- 🌹 فاصل رومانسي -->
 <div style="text-align:center; margin:50px 0;">
   <span style="color:#e91e63; font-size:24px;">❀ ❀ ❀</span>
 </div>
@@ -360,17 +360,19 @@ body {
 <div style="max-width:400px; margin:auto; text-align:center;">
   <h2 style="color:#e91e63;"> 🥰❤️💌رسالتك ليا </h2>
 
-  <form action="https://formsubmit.co/bodyashraf244@gmail.com" method="POST">
-    
-    <input type="text" name="name" placeholder="اسمك"
-      required
-      style="width:100%; padding:10px; margin-bottom:10px; border-radius:10px; border:1px solid #ccc;">
-    
-    <textarea name="message" placeholder="اكتب رسالتك هنا..."
+  <!-- iframe مخفي عشان الصفحة ما تتحولش -->
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+  <form action="https://formsubmit.co/bodyashraf244@gmail.com"
+        method="POST"
+        target="hidden_iframe"
+        onsubmit="showMessage();">
+
+    <textarea name="message" placeholder="🥺❤️انتظر رسالتك كما انتظرك..."
       required
       style="width:100%; height:120px; padding:10px; border-radius:10px; border:1px solid #ccc;"></textarea>
 
-    <input type="hidden" name="_subject" value="💌 رسالة جديدة من موقع دودو">
+    <input type="hidden" name="_subject" value="💌 رسالة جديدة من موقع الحب">
     <input type="hidden" name="_captcha" value="false">
 
     <br><br>
@@ -379,7 +381,19 @@ body {
       إرسال 💖
     </button>
   </form>
+
+  <p id="successMsg" style="display:none; color:#4caf50; margin-top:15px;">
+    وصلتني رسالتك 🤍
+  </p>
 </div>
+
+<script>
+  function showMessage(){
+    setTimeout(() => {
+      document.getElementById("successMsg").style.display = "block";
+    }, 800);
+  }
+</script>
     
 <div class="footer-text"> ❤️🫠 كل هذا صُنع بكل حب لصغيرتي دو </div>
 
